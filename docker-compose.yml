@@ -1,0 +1,38 @@
+# Uso: copia .env.example a .env, cambia los valores y ejecuta `docker compose up --build`.
+# Swagger: http://localhost:8080/swagger
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: ${SA_PASSWORD:?Define SA_PASSWORD en .env}
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqldata:/var/opt/mssql
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P \"$$MSSQL_SA_PASSWORD\" -C -Q 'SELECT 1' || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 20s
+
+  api:
+    build: .
+    depends_on:
+      sqlserver:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      Swagger__Enabled: "true"
+      Database__Provider: SqlServer
+      ConnectionStrings__CreditDesk: "Server=sqlserver,1433;Database=CreditDesk;User Id=sa;Password=${SA_PASSWORD};TrustServerCertificate=True"
+      Jwt__SigningKey: ${JWT_SIGNING_KEY:?Define JWT_SIGNING_KEY en .env}
+      Seed__Analysts__0__Email: ${ANALYST_EMAIL:-analista@creditdesk.local}
+      Seed__Analysts__0__FullName: Analista Demo
+      Seed__Analysts__0__Password: ${ANALYST_PASSWORD:?Define ANALYST_PASSWORD en .env}
+
+volumes:
+  sqldata:

@@ -1,0 +1,9 @@
+**/bin/
+**/obj/
+**/*.db
+.vs/
+.vscode/
+.git/
+.github/
+tests/
+.env

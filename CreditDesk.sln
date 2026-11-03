@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{32750049-F80C-4309-A727-873E9C5F1C73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditDesk.Api", "src\CreditDesk.Api\CreditDesk.Api.csproj", "{A5DFE50A-C71A-47FC-9D06-0C9ECEA2CB9B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{29D62806-0186-4AC4-9907-5EDEA55DB439}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditDesk.Tests", "tests\CreditDesk.Tests\CreditDesk.Tests.csproj", "{DA7EBACD-3075-4FC4-ADC1-AEA358523DA2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A5DFE50A-C71A-47FC-9D06-0C9ECEA2CB9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5DFE50A-C71A-47FC-9D06-0C9ECEA2CB9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5DFE50A-C71A-47FC-9D06-0C9ECEA2CB9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5DFE50A-C71A-47FC-9D06-0C9ECEA2CB9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA7EBACD-3075-4FC4-ADC1-AEA358523DA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA7EBACD-3075-4FC4-ADC1-AEA358523DA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA7EBACD-3075-4FC4-ADC1-AEA358523DA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA7EBACD-3075-4FC4-ADC1-AEA358523DA2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A5DFE50A-C71A-47FC-9D06-0C9ECEA2CB9B} = {32750049-F80C-4309-A727-873E9C5F1C73}
+		{DA7EBACD-3075-4FC4-ADC1-AEA358523DA2} = {29D62806-0186-4AC4-9907-5EDEA55DB439}
+	EndGlobalSection
+EndGlobal
